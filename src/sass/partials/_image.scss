@@ -55,3 +55,109 @@
     color: $c-white;
     display: block;
 }
+
+
+.vortex__thumb {
+    position: fixed;
+    z-index: 10001;
+    animation: vortex 2s linear infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: translateX(10px) translateY(10px) rotate(15deg);
+    }
+    33% {
+        transform: translateX(10px) translateY(20px) rotate(-10deg);
+    }
+    66% {
+        transform: translateX(0px) translateY(0px) rotate(0deg); 
+    }
+}
+
+.vortex__thumb-image {
+    width: 100%;
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes vortex1 {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(20deg);
+    }
+    50% {
+        transform: translateX(3vw) translateY(10vh) rotate(32deg);
+    }
+}
+
+.vortex__thumb--1 {
+    top: 20vh;
+    left: -2vw;
+    width: 16vw;
+    animation: vortex1 5s linear infinite;
+}
+
+@keyframes vortex2 {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(-10deg);
+    }
+    50% {
+        transform: translateX(6vw) translateY(2vh) rotate(8deg);
+    }
+}
+
+.vortex__thumb--2 {
+    animation-delay: 1.5s;
+    bottom: 10vh;
+    left: 45vw;
+    width: 8vw;
+    animation: vortex2 4s linear infinite;
+
+    .vortex__thumb-image {
+        animation-delay: -.5s;
+        animation-duration: 1.2s;
+    }
+}
+
+@keyframes vortex3 {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(-20deg);
+    }
+    50% {
+        transform: translateX(10vw) translateY(3vh) rotate(-32deg);
+    }
+}
+
+.vortex__thumb--3 {
+    top: 3vh;
+    left: 45vw;
+    width: 12vw;
+    animation: vortex3 6s linear infinite;
+    animation-delay: -1.2s;
+
+    .vortex__thumb-image {
+        animation-delay: -3.5s;
+        animation-duration: 2.4s;
+    }
+}
+
+@keyframes vortex4 {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(20deg);
+    }
+    50% {
+        transform: translateX(3vw) translateY(10vh) rotate(32deg);
+    }
+}
+
+.vortex__thumb--4 {
+    top: 40vh;
+    right: 4vw;
+    width: 14vw;
+    animation: vortex1 5.5s linear infinite;
+    animation-delay: -2s;
+
+    .vortex__thumb-image {
+        animation-delay: -.5s;
+        animation-duration: 1.2s;
+    }
+}
