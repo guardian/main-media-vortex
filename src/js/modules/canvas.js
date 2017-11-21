@@ -41,7 +41,7 @@ module.exports = {
 
     calculateNumbers: function() {
         var centerToCorner =  Math.sqrt( ((W/2 - 0) * (W/2 - 0)) + ((H/2 - 0) * (H/2 - 0)) );
-        textWidth = W > 700 ? 700 : W - 80;
+        textWidth = W > 700 ? 700 : W - 160;
         circleCount = (centerToCorner - (textWidth / 2)) / distance;
     },
 
