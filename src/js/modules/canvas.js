@@ -86,7 +86,7 @@ module.exports = {
 
     draw: function() {
         ctx.clearRect(0, 0, W, H);
-        ctx.lineWidth = 6;
+        ctx.lineWidth = W < 700 ? 4 : 6;
 
         for (var i = 0; i < circleCount; i++) {
             var circle = circles[i];
