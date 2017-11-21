@@ -1,9 +1,11 @@
 var $ = require('../vendor/jquery');
 
-var canvas, W, H, ctx,
+var canvas, W, H, ctx, request,
+    textWidth = 0,
+    circleCount = 0,
     circles = [],
-    circleCount = 40,
     degrees = 0,
+    distance = 20,
     pi2 = Math.PI * 2;
 
 module.exports = {
@@ -15,12 +17,15 @@ module.exports = {
     bindings: function() {
         $(window).resize(function() {
             this.setCanvasSize();
+            this.calculateNumbers();
+            this.generateCircles();
         }.bind(this))
     },
 
     createCanvas: function() {
         canvas = document.getElementsByClassName('vortex__canvas')[0];
         this.setCanvasSize();
+        this.calculateNumbers();
         ctx = canvas.getContext('2d');
 
         this.generateCircles();
@@ -34,7 +39,17 @@ module.exports = {
         canvas.height = H;
     },
 
+    calculateNumbers: function() {
+        var centerToCorner =  Math.sqrt( ((W/2 - 0) * (W/2 - 0)) + ((H/2 - 0) * (H/2 - 0)) );
+        textWidth = W > 700 ? 700 : W - 80;
+        circleCount = (centerToCorner - (textWidth / 2)) / distance;
+    },
+
     generateCircles: function() {
+        circles = [];
+        cancelAnimationFrame(request);
+        request = undefined;
+
         for (var i = 0; i < circleCount; i++) {
             var x = W / 2 + Math.floor(Math.random()*40) -20;
             var y = H / 2 + Math.floor(Math.random()*40) -20;
@@ -43,7 +58,7 @@ module.exports = {
                 offset: Math.sqrt( ((W/2 - x) * (W/2 - x)) + ((H/2 - y) * (H/2 - y)) ),
                 angle: Math.floor(Math.random()*360) + 1,
                 speed: Math.floor(Math.random()*8),
-                radius: 400 + (i * 18),
+                radius: (textWidth / 2) + (i * distance),
                 rgb: Math.floor(34 + (i * (221 / circleCount))),
                 cx: 0,
                 cy: 0
@@ -66,7 +81,7 @@ module.exports = {
         }
 
         this.draw();
-        requestAnimationFrame(this.updateCircles.bind(this));
+        request = requestAnimationFrame(this.updateCircles.bind(this));
     },
 
     draw: function() {
