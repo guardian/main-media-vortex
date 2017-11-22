@@ -57,9 +57,11 @@
 }
 
 
-.vortex__thumb {
-    position: fixed;
+.vortex__thing {
+    position: absolute;
     z-index: 10001;
+    min-width: 60px;
+    max-width: 200px;
     animation: vortex 2s linear infinite;
 }
 
@@ -75,7 +77,7 @@
     }
 }
 
-.vortex__thumb-image {
+.vortex__image {
     width: 100%;
     animation: wiggle 2s ease-in-out infinite;
 }
@@ -89,9 +91,9 @@
     }
 }
 
-.vortex__thumb--1 {
-    top: 20vh;
-    left: -2vw;
+.vortex__thing--thumb-1 {
+    bottom: -140%;
+    left: -40%;
     width: 16vw;
     animation: vortex1 5s linear infinite;
 }
@@ -105,11 +107,11 @@
     }
 }
 
-.vortex__thumb--2 {
+.vortex__thing--thumb-2 {
     animation-delay: 1.5s;
-    bottom: 10vh;
-    left: 45vw;
-    width: 8vw;
+    top: -120%;
+    right: 10%;
+    width: 14vw;
     animation: vortex2 4s linear infinite;
 
     .vortex__thumb-image {
@@ -120,44 +122,140 @@
 
 @keyframes vortex3 {
     0%, 100% {
-        transform: translateX(0) translateY(0) rotate(-20deg);
+        transform: translateX(0) translateY(0) rotate(20deg);
     }
     50% {
-        transform: translateX(10vw) translateY(3vh) rotate(-32deg);
+        transform: translateX(1vw) translateY(4vh) rotate(12deg);
     }
 }
 
-.vortex__thumb--3 {
-    top: 3vh;
-    left: 45vw;
-    width: 12vw;
-    animation: vortex3 6s linear infinite;
-    animation-delay: -1.2s;
-
-    .vortex__thumb-image {
-        animation-delay: -3.5s;
-        animation-duration: 2.4s;
-    }
+.vortex__thing--sad-1 {
+    bottom: -80%;
+    left: 14%;
+    width: 9vw;
+    animation: vortex3 5s linear infinite;
 }
 
 @keyframes vortex4 {
     0%, 100% {
-        transform: translateX(0) translateY(0) rotate(20deg);
+        transform: translateX(0) translateY(0) rotate(-120deg);
     }
     50% {
-        transform: translateX(3vw) translateY(10vh) rotate(32deg);
+        transform: translateX(1vw) translateY(4vh) rotate(-108deg);
     }
 }
 
-.vortex__thumb--4 {
-    top: 40vh;
-    right: 4vw;
-    width: 14vw;
-    animation: vortex1 5.5s linear infinite;
-    animation-delay: -2s;
+.vortex__thing--sad-2 {
+    top: -150%;
+    left: 126%;
+    width: 7vw;
+    animation: vortex4 5s linear infinite;
+}
 
-    .vortex__thumb-image {
-        animation-delay: -.5s;
-        animation-duration: 1.2s;
+@keyframes vortex5 {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(-15deg);
+    }
+    50% {
+        transform: translateX(-4vw) translateY(2vh) rotate(3deg);
+    }
+}
+
+.vortex__thing--angry-1 {
+    top: -110%;
+    width: 20%;
+    left: -5%;
+    animation: vortex5 5s linear infinite;
+}
+
+@keyframes vortex6 {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(-15deg);
+    }
+    50% {
+        transform: translateX(-4vw) translateY(2vh) rotate(3deg);
+    }
+}
+
+.vortex__thing--angry-2 {
+    width: 8vw;
+    right: 10%;
+    bottom: -130%;
+    animation: vortex6 5s linear infinite;
+}
+
+@keyframes vortex7 {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(-15deg);
+    }
+    50% {
+        transform: translateX(-4vw) translateY(2vh) rotate(3deg);
+    }
+}
+
+.vortex__thing--heart-1 {
+    width: 6vw;
+    left: 30%;
+    top: -196%;
+    animation: vortex7 5s linear infinite;
+}
+
+@keyframes vortex8 {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(-15deg);
+    }
+    50% {
+        transform: translateX(-4vw) translateY(2vh) rotate(3deg);
+    }
+}
+
+.vortex__thing--heart-2 {
+    width: 8vw;
+    left: -40%;
+    top: 20%;
+    animation: vortex8 5s linear infinite;
+}
+
+@keyframes vortex9 {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(-15deg);
+    }
+    50% {
+        transform: translateX(-4vw) translateY(2vh) rotate(3deg);
+    }
+}
+
+.vortex__thing--heart-3 {
+    width: 4vw;
+    right: -20%;
+    bottom: 0%;
+    animation: vortex9 5s linear infinite;
+}
+
+@keyframes vortex10 {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(-15deg);
+    }
+    50% {
+        transform: translateX(-4vw) translateY(2vh) rotate(3deg);
+    }
+}
+
+.vortex__thing--heart-4 {
+    width: 8vw;
+    right: -10%;
+    bottom: -130%;
+    animation: vortex10 5s linear infinite;
+}
+
+@for $i from 1 through 9 {
+    .vortex__thing--#{$i} {
+        animation-duration: random(4s) + 2s;
+        animation-delay: random(4s) - 8s;
+
+        .vortex__thumb-image {
+            animation-delay: random(4s) - 8s;
+            animation-duration: random(3s) + 1s;
+        }
     }
 }
