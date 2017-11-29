@@ -279,3 +279,28 @@
         }
     }
 }
+
+@include mq($until: tablet) {
+    .vortex__thing--sad-2 {
+        left: -10%;
+        top: -300%;
+        width: 18vh;
+    }
+
+    .vortex__thing--angry-2 {
+        width: 13vh;
+    }
+
+    .vortex__thing--heart-2 {
+        left: 40%;
+        bottom: -330%;
+        top: auto;
+        width: 20vh;
+    }
+
+    .vortex__thing--thumb-2 {
+        width: 18vh;
+    top: -200%;
+    right: 2%;
+    }
+}

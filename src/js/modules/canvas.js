@@ -6,6 +6,7 @@ var canvas, W, H, ctx, request,
     circles = [],
     degrees = 0,
     distance = 20,
+    offset = 0,
     pi2 = Math.PI * 2;
 
 module.exports = {
@@ -48,6 +49,7 @@ module.exports = {
         var centerToCorner =  Math.sqrt( ((W/2 - 0) * (W/2 - 0)) + ((H/2 - 0) * (H/2 - 0)) );
         textWidth = W > 700 ? 700 : W - 160;
         circleCount = (centerToCorner - (textWidth / 2)) / distance;
+        offset = centerToCorner / 20;
     },
 
     generateCircles: function() {
@@ -56,8 +58,8 @@ module.exports = {
         request = undefined;
 
         for (var i = 0; i < circleCount; i++) {
-            var x = W / 2 + Math.floor(Math.random()*40) -20;
-            var y = H / 2 + Math.floor(Math.random()*40) -20;
+            var x = W / 2 + Math.floor(Math.random()*offset) -(offset / 2);
+            var y = H / 2 + Math.floor(Math.random()*offset) -(offset / 2);
 
             circles[i] = {
                 offset: Math.sqrt( ((W/2 - x) * (W/2 - x)) + ((H/2 - y) * (H/2 - y)) ),
