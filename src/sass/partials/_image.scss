@@ -27,7 +27,6 @@
     position: fixed;
     z-index: 10000;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
     padding: 0 60px;
@@ -36,6 +35,10 @@
     margin: auto;
     font-family: 'Guardian Egyptian Web';
     font-size: 200;
+
+    @include mq(desktop) {
+        left: 130px;
+    }
 }
 
 .vortex__headline {
@@ -56,13 +59,14 @@
 .vortex__standfirst {
     font-weight: 200;
     color: $c-blue;
-    font-size: 4vw;
+    font-size: 5vw;
     line-height: 1.2;
     margin: 0;
     -webkit-font-smoothing: antialiased;
 
     @include mq(desktop) {
-        font-size: 32px;
+        font-size: 42px;
+        line-height: 1.1;
     }
 }
 
