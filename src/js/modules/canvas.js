@@ -30,6 +30,7 @@ module.exports = {
 
         this.generateCircles();
         this.draw();
+        this.hideFallback();
     },
 
     setCanvasSize: function() {
@@ -37,6 +38,10 @@ module.exports = {
         H = window.innerHeight;
         canvas.width = W;
         canvas.height = H;
+    },
+
+    hideFallback: function() {
+        $('.vortex').addClass('has-loaded');
     },
 
     calculateNumbers: function() {
